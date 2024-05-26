@@ -27,6 +27,6 @@ jobs:
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
       - name: Deploy
           uses: peaceiris/actions-gh-pages@v4
-      with:
+        with:
             github_token: ${{ secrets.MY_SECRET }}
             publish_dir: cypress/reports/html
