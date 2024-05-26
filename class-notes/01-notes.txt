@@ -1,0 +1,147 @@
+RECAP:
+
+Bundled Libraries
+
+Mocha and Chai
+
+	Mocha: describe() and it()
+
+		describe() => It's a method it groups the tests together.
+
+		it() 		=> Defines individual test block.
+
+
+	Chai: All the assertions we will use comes from the chai.
+
+Basic Commands:	
+
+	- cy.visit() - It's a method that takes us to specific URL.
+	- cy.go()	 - It's a navigation that helps you to go back and forward
+	- cy.reload() - Refreshes the page.
+
+	- should() - It's a main assertion method.
+
+	- cy.get() - It's a method that helps us to query the element we find on the DOM.
+
+Locators:
+
+	- XPath and CSS
+
+		- Xpath: 
+		Slower compared to CSS
+		Syntax is a little harder
+
+		- CSS:
+		Faster compared to XPATH
+		It's easir to learn and use
+
+    Locators Recap
+
+- XPath
+- CSS
+
+CSS:
+
+- Tags
+- id (#)and class (.)
+
+<button id="submit"></button>
+- button.#submit
+
+- div > button: Targets the direct child
+
+<div>
+	<button id="submit"></button>
+</div>
+
+- div button: Targets the descendant child
+	div > span > button
+
+<div>
+	<span>
+		<button id="submit"></button>
+	</span>	
+</div>
+
+- #button, #typeBox: Targets the multiple web elements that relation isnt required
+
+- div li#firstItem + li: Targets the immediate sibling of a specified web element
+
+<div>
+	<ul>
+		<li id="secondItem">item 2</li>
+		<li id="firstItem">item 1</li>
+		<li id="thirdItem">item 3</li>
+		<li id="fourthItem">item 4</li>
+	</ul>	
+</div>
+
+- div li#firstItem ~ li: Targets all the immediate siblings of a specified web element
+
+<div>
+	<ul>
+		<li id="secondItem">item 2</li>
+		<li id="firstItem">item 1</li>
+		<li id="thirdItem">item 3</li>
+		<li id="fourthItem">item 4</li>
+		<span>item 4</span>
+		<li id="fifthItem">item 5</li>
+		<div>
+			<ol>
+				<li>random item</li>
+				<li>random item</li>
+				<li>random item</li>
+			</ol>
+		</div>
+		<li id="sixthItem">item 6</li>
+	</ul>	
+</div>
+
+
+
+<input type="radio" name="radioButton" data-testid="radio_test" href="url"></input>
+
+	[type="radio"]
+	[name="radioButton"]
+	[data-testid="radio_test"]
+	[href="url"]
+
+	- contains 		=> [type*="radio"]
+	- starts-with 	=> [type^="radio"]
+	- ends-with 	=> [type$="radio"]
+
+<input class="radio style-1 mr-3 wrapper listItems"></input>
+
+[class^="radio"]
+[class$="listItems"]
+.radio style-1 mr-2 wrapper listItems. XXXXXXXXXX
+
+
+.radio: {
+	color: "black",
+	background-color: "white",
+	font: "bold"
+
+}
+
+.listItems: {
+	color: "black",
+	background-color: "white",
+	font: "bold"
+}
+
+
+Pseudo Classes
+
+Its a way to locate the elements depending on their states.
+
+input:empty
+button:disabled
+.checkbox:checked
+li:first-child
+li:nth-child(9)
+li:last-child
+option:selected
+button:visible
+
+li:not(#firstItem)

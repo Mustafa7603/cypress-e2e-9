@@ -1,0 +1,7 @@
+{
+  "header1": "Rank",
+  "header2": "Company",
+  "header3": "Employees",
+  "header4": "Country",
+  "texts": ["Rank", "Company", "Employees", "Country"]
+}

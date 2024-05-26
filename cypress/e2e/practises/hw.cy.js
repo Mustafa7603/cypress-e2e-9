@@ -1,0 +1,76 @@
+/// <reference types="Cypress"/>
+/**
+ * Test Case: Validate Dropdowns Functionality on TechGlobal Training Page
+ * Go to https://techglobal-training.com/frontend
+ * Select the "Dropdowns" card
+ * Select the "MacBook Pro 13" option from the "Product" dropdown.
+ * Select the "Green" option from the "Color" dropdown.
+ * Open the "Shipping" dropdown and click on the "Delivery" option.
+ * Click on the "Submit" button.
+ * Validate result message displays "Your Green MacBook Pro 13 will be delivered to you."
+ */
+
+describe("hw", () => {
+  beforeEach(() => {
+    cy.visit("https://www.techglobal-training.com/frontend/");
+  });
+
+  it("homework", () => {
+    cy.get("#card-4").click();
+    const dropdownOptions = [
+      { dropdownId: "#product_dropdown", option: "MacBook Pro 13" },
+      { dropdownId: "#color_dropdown", option: "Green" },
+      { dropdownId: "#shipment_dropdown", option: "Delivery" },
+    ];
+
+    dropdownOptions.forEach(({ dropdownId, option }) => {
+      cy.get(dropdownId).then(($dropdown) => {
+        if ($dropdown.prop("tagName") === "SELECT") {
+          cy.get(dropdownId).select(option);
+        } else {
+          cy.get(dropdownId).click().contains(option).click();
+        }
+      });
+    });
+
+    cy.get("#submit").click();
+    cy.contains("Your Green MacBook Pro 13 will be delivered to you.");
+  });
+});
+
+describe("Homework", () => {
+  beforeEach(() => {
+    cy.visit("https://www.techglobal-training.com/frontend/");
+    cy.contains(".cards", "Dropdowns").click();
+  });
+
+  /**
+   * Test Case: Validate Dropdowns Functionality on TechGlobal Training Page
+   * Go to https://techglobal-training.com/frontend
+   * Select the "Dropdowns" card
+   * Select the "MacBook Pro 13" option from the "Product" dropdown.
+   * Select the "Green" option from the "Color" dropdown.
+   * Open the "Shipping" dropdown and click on the "Delivery" option.
+   * Click on the "Submit" button.
+   * Validate result message displays "Your Green MacBook Pro 13 will be delivered to you."
+   */
+  it("Dropdown Menu", () => {
+    const product = "MacBook Pro 13";
+    const color = "Green";
+    const shippingOption = "Pick up";
+    const expectedMessage =
+      shippingOption === "Delivery"
+        ? `Your ${color} ${product} will be delivered to you.`
+        : `Your ${color} ${product} is ready to be picked up.`;
+
+    cy.get("#product_dropdown").select(product);
+    cy.get("#color_dropdown").select(color);
+
+    cy.get("#shipment_dropdown").click();
+    cy.get(`[aria-label="${shippingOption}"]`).click();
+
+    cy.get("#submit").click();
+
+    cy.get("#result").should("have.text", expectedMessage);
+  });
+});

@@ -1,0 +1,51 @@
+nodejs
+
+nodejs is a tool that allows us to create backend applications. it also offers a wide cariety of dependencies 
+can use.
+
+node_modules -- a directory where it holds the dependencies you have installed in you framework
+never push to github. always in gitignore file
+
+confluence-> is basically a tutorial or wikipedia for your company used by atlassian
+
+mocha => describe() and it()
+
+describe = groups the tests together
+it= defines individual test
+
+chai = all the assertions we will used in test
+cy.visit()- takes us to url
+cy.go()- navigation take you back and forward
+cy.reload()- refreshes the page
+should()-main assertion method, does not fail right always
+cy.get()-helps find a query element from the dom
+
+
+locators: two type of locators
+xpath- slower compaired to css, syntax is harder
+css-use .for classes # for iDs 
+
+
+//  [] = used for writing attribute-based selectors
+// + = used for selecting the element placed immediatly after the first element
+
+// * matches every element on the page
+// ~ = is
+// * = contains
+// ^ = startswith
+// $ = endswith
+
+// comma between two or more elements gets element that have no relationship
+
+// + = 
+:nthChild(1) = c
+
+css pseudoclasses
+ utilized to target and verify specific parts of an element, like its 
+specific child by its index, first child, or last child. They can also be useful to access generated 
+content that's inserted via CSS, which may not be otherwise directly accessible in the DOM
+
+:first-child ( image 1 )
+Usage: Selects the first child element of its parent
+
+:not() - Negates the selector within its parentheses
